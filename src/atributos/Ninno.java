@@ -52,6 +52,10 @@ public abstract class Ninno  {
 				'}';
 	}
 
+	public Ninno() {
+
+	}
+
 	public Ninno(String dni, LocalDate fechaNacimiento, boolean genero, String nombre) {
 		this.dni = dni;
 		this.fechaNacimiento = fechaNacimiento;

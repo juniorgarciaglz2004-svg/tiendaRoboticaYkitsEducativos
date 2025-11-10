@@ -21,9 +21,12 @@ public class NinnoAvanzado extends Ninno{
         this.logros = logros;
     }
 
+    public NinnoAvanzado() {
+    }
+
     @Override
     public String toString() {
-        return "NinnoPrincipiante{" +
+        return "NinnoAvanzado{" +
                 "dni='" + getDni() + '\'' +
                 ", fechaNacimiento=" + getFechaNacimiento() +
                 ", genero=" + isGenero() +

@@ -1,16 +1,21 @@
 package gui;
 
 import atributos.LogrosAvanzados;
+import atributos.Ninno;
 import atributos.NivelesPrincipiantes;
+import org.xml.sax.SAXException;
 import util.Util;
 
 import javax.swing.*;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
+import javax.xml.parsers.ParserConfigurationException;
+import javax.xml.transform.TransformerException;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
+import java.io.IOException;
 
 public class NinnoControlador implements ActionListener , ListSelectionListener , WindowListener {
 private Ventana vista;
@@ -99,6 +104,40 @@ private NinnoModelo ninnoModelo;
                 vista.ninnoDefaultListModel.addElement(ninnoModelo.ninnos.get(ninnoModelo.ninnos.size()-1));
                 break;
 
+            case "EXPORTAR" :
+                JFileChooser selectorFichero2 = Util.crearSelectorFichero("Archivos XML","xml");
+                int opt2=selectorFichero2.showSaveDialog(null);
+                if (opt2==JFileChooser.APPROVE_OPTION) {
+                    try {
+
+                        ninnoModelo.exportarXml(selectorFichero2.getSelectedFile());
+
+                    } catch (ParserConfigurationException ex) {
+                        ex.printStackTrace();
+                    } catch (TransformerException ex) {
+                        ex.printStackTrace();
+                    }
+                }
+                break;
+            case "IMPORTAR":
+
+                JFileChooser selectorFichero = Util.crearSelectorFichero("Archivos XML","xml");
+                int opt=selectorFichero.showOpenDialog(null);
+                if (opt==JFileChooser.APPROVE_OPTION) {
+                    try {
+                        ninnoModelo.importarXml(selectorFichero.getSelectedFile());
+
+                    } catch (ParserConfigurationException ex) {
+                        ex.printStackTrace();
+                    } catch (IOException ex) {
+                        ex.printStackTrace();
+                    } catch (SAXException ex) {
+                        ex.printStackTrace();
+                    }
+                    refrescar();
+                }
+                break;
+
         }
 
 
@@ -140,6 +179,13 @@ private NinnoModelo ninnoModelo;
 
 
     return false;
+    }
+
+    private void refrescar() {
+        vista.ninnoDefaultListModel.clear();
+        for (Ninno ninno:ninnoModelo.ninnos) {
+            vista.ninnoDefaultListModel.addElement(ninno);
+        }
     }
 
     @Override

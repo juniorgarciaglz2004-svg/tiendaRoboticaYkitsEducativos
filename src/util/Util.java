@@ -12,11 +12,8 @@ public class Util {
         return JOptionPane.showConfirmDialog(null,mensaje,titulo,JOptionPane.YES_NO_OPTION);
     }
 
-    public static JFileChooser crearSelectorFichero(File rutaDefecto, String tipoArchivos, String extension) {
+    public static JFileChooser crearSelectorFichero( String tipoArchivos, String extension) {
         JFileChooser selectorFichero = new JFileChooser();
-        if (rutaDefecto!=null) {
-            selectorFichero.setCurrentDirectory(rutaDefecto);
-        }
         if (extension!=null) {
             FileNameExtensionFilter filtro = new FileNameExtensionFilter(tipoArchivos,extension);
             selectorFichero.setFileFilter(filtro);

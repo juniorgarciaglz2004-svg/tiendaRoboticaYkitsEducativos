@@ -12,6 +12,10 @@ private NivelesPrincipiantes nivel;
         this.nivel = nivel;
     }
 
+    public NinnoPrincipiante() {
+        super();
+
+    }
 
     public NivelesPrincipiantes getNivel() {
         return nivel;
