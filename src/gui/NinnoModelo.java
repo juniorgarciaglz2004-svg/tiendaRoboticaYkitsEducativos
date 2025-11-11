@@ -93,42 +93,40 @@ public void exportarXml(File fichero) throws ParserConfigurationException, Trans
 
 }
 
-public void importarXml (File fichero) throws ParserConfigurationException, IOException, SAXException {
-    this.ninnos.clear();
+    public void importarXml (File fichero) throws ParserConfigurationException, IOException, SAXException {
+        this.ninnos.clear();
 
-    DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
-    DocumentBuilder builder = factory.newDocumentBuilder();
-    Document documento = builder.parse(fichero);
+        DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+        DocumentBuilder builder = factory.newDocumentBuilder();
+        Document documento = builder.parse(fichero);
 
-    NodeList listaElementos = documento.getElementsByTagName("*");
+        NodeList listaElementos = documento.getElementsByTagName("*");
 
-    for (int i = 0; i < listaElementos.getLength(); i++)
-    {
-        Element nodoNinno = (Element) listaElementos.item(i);
-        if (nodoNinno.getTagName().equals("Principiante"))
+        for (int i = 0; i < listaElementos.getLength(); i++)
         {
-            NinnoPrincipiante principiante = new NinnoPrincipiante();
-            principiante.setNombre(nodoNinno.getChildNodes().item(0).getTextContent());
-            principiante.setDni(nodoNinno.getChildNodes().item(1).getTextContent());
-            principiante.setGenero(nodoNinno.getChildNodes().item(2).getTextContent().equals("Hombre"));
-            principiante.setFechaNacimiento(LocalDate.parse(nodoNinno.getChildNodes().item(3).getTextContent()));
-            principiante.setNivel(NivelesPrincipiantes.valueOf(nodoNinno.getChildNodes().item(4).getTextContent()));
-            this.ninnos.add(principiante);
-        }
-        else if (nodoNinno.getTagName().equals("Avanzado")) {
-            NinnoAvanzado avanzado = new NinnoAvanzado();
-            avanzado.setNombre(nodoNinno.getChildNodes().item(0).getTextContent());
-            avanzado.setDni(nodoNinno.getChildNodes().item(1).getTextContent());
-            avanzado.setGenero(nodoNinno.getChildNodes().item(2).getTextContent().equals("Hombre"));
-            avanzado.setFechaNacimiento(LocalDate.parse(nodoNinno.getChildNodes().item(3).getTextContent()));
-            avanzado.setLogros(LogrosAvanzados.valueOf(nodoNinno.getChildNodes().item(4).getTextContent()));
-            this.ninnos.add(avanzado);
-        }
+            Element nodoNinno = (Element) listaElementos.item(i);
+            if (nodoNinno.getTagName().equals("Principiante"))
+            {
+                NinnoPrincipiante principiante = new NinnoPrincipiante();
+                principiante.setNombre(nodoNinno.getElementsByTagName("Nombre").item(0).getTextContent());
+                principiante.setDni(nodoNinno.getElementsByTagName("Dni").item(0).getTextContent());
+                principiante.setGenero(nodoNinno.getElementsByTagName("Sexo").item(0).getTextContent().equals("Hombre"));
+                principiante.setFechaNacimiento(LocalDate.parse(nodoNinno.getElementsByTagName("Fecha_Nacimiento").item(0).getTextContent()));
+                principiante.setNivel(NivelesPrincipiantes.valueOf(nodoNinno.getElementsByTagName("Nivel").item(0).getTextContent()));
+                this.ninnos.add(principiante);
+            }
+            else if (nodoNinno.getTagName().equals("Avanzado")) {
+                NinnoAvanzado avanzado = new NinnoAvanzado();
+                avanzado.setNombre(nodoNinno.getElementsByTagName("Nombre").item(0).getTextContent());
+                avanzado.setDni(nodoNinno.getElementsByTagName("Dni").item(0).getTextContent());
+                avanzado.setGenero(nodoNinno.getElementsByTagName("Sexo").item(0).getTextContent().equals("Hombre"));
+                avanzado.setFechaNacimiento(LocalDate.parse(nodoNinno.getElementsByTagName("Fecha_Nacimiento").item(0).getTextContent()));
+                avanzado.setLogros(LogrosAvanzados.valueOf(nodoNinno.getElementsByTagName("Logros").item(0).getTextContent()));
+                this.ninnos.add(avanzado);
+            }
 
+        }
     }
-
-
-}
 
 
 
