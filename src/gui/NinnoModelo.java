@@ -17,6 +17,8 @@ import java.util.ArrayList;
 
 public class NinnoModelo {
 public ArrayList<Ninno> ninnos = new ArrayList<>();
+public ArrayList<KitEducativo> kits = new ArrayList<>();
+
 
 public void adicionarPrincipiante ( String dni,  LocalDate fechaNacimiento, boolean genero, String nombre , NivelesPrincipiantes nivel)
 {
@@ -30,7 +32,13 @@ public void adicionarAvanzado (String dni,  LocalDate fechaNacimiento, boolean g
     ninnos.add(avanzado);
 }
 
-public void exportarXml(File fichero) throws ParserConfigurationException, TransformerException {
+public void adicionarKit (String id, String nombre, int cantidad, LocalDate fechaDeProduccion, boolean productoCondicion, int clasificacion)
+{
+    KitEducativo kitEducativo = new KitEducativo(id,nombre,cantidad,fechaDeProduccion,productoCondicion ,clasificacion);
+    kits.add(kitEducativo);
+}
+
+public void exportarXmlNinnos(File fichero) throws ParserConfigurationException, TransformerException {
     DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
     DocumentBuilder builder = factory.newDocumentBuilder();
     DOMImplementation dom = builder.getDOMImplementation();
@@ -93,7 +101,56 @@ public void exportarXml(File fichero) throws ParserConfigurationException, Trans
 
 }
 
-    public void importarXml (File fichero) throws ParserConfigurationException, IOException, SAXException {
+    public void exportarXmlKits(File fichero) throws ParserConfigurationException, TransformerException {
+        DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+        DocumentBuilder builder = factory.newDocumentBuilder();
+        DOMImplementation dom = builder.getDOMImplementation();
+        Document documento = dom.createDocument(null, "xml", null);
+
+
+        Element raiz = documento.createElement("Kits");
+        documento.getDocumentElement().appendChild(raiz);
+
+        for (KitEducativo kit : kits)
+        {
+            Element nodoKit = documento.createElement("Kit");
+
+
+            raiz.appendChild(nodoKit);
+            adicionaNodo(nodoKit,documento,"Nombre",kit.getNombre());
+            adicionaNodo(nodoKit,documento,"ID",kit.getId());
+
+            if (kit.isProductoCondicion())
+            {
+                adicionaNodo(nodoKit,documento,"Condificion_Producto","Nuevo");
+            }
+            else{
+                adicionaNodo(nodoKit,documento,"Condificion_Producto","Reacondicionado");
+            }
+
+            adicionaNodo(nodoKit,documento,"Fecha_Produccion",kit.getFechaDeProduccion().toString());
+
+            adicionaNodo(nodoKit,documento,"Cantidad",String.valueOf( kit.getCantidad()));
+            adicionaNodo(nodoKit,documento,"Clasificacion",String.valueOf( kit.getClasificacion()));
+
+
+        }
+
+
+
+        Source source = new DOMSource(documento);
+        Result resultado = new StreamResult(fichero);
+
+        Transformer transformer = TransformerFactory.newInstance().newTransformer();
+        transformer.transform(source, resultado);
+
+
+
+    }
+
+
+
+    public void importarXmlNinnos(File fichero) throws ParserConfigurationException, IOException, SAXException {
         this.ninnos.clear();
 
         DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
@@ -128,7 +185,33 @@ public void exportarXml(File fichero) throws ParserConfigurationException, Trans
         }
     }
 
+    public void importarXmlKit(File fichero) throws ParserConfigurationException, IOException, SAXException {
+        this.kits.clear();
 
+        DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+        DocumentBuilder builder = factory.newDocumentBuilder();
+        Document documento = builder.parse(fichero);
+
+        NodeList listaElementos = documento.getElementsByTagName("*");
+
+        for (int i = 0; i < listaElementos.getLength(); i++)
+        {
+            Element nodoKit = (Element) listaElementos.item(i);
+            if (nodoKit.getTagName().equals("Kit"))
+            {
+                KitEducativo kitEducativo = new KitEducativo();
+                kitEducativo.setNombre(nodoKit.getElementsByTagName("Nombre").item(0).getTextContent());
+                kitEducativo.setId(nodoKit.getElementsByTagName("ID").item(0).getTextContent());
+                kitEducativo.setProductoCondicion(nodoKit.getElementsByTagName("Condificion_Producto").item(0).getTextContent().equals("Nuevo"));
+                kitEducativo.setFechaDeProduccion(LocalDate.parse(nodoKit.getElementsByTagName("Fecha_Produccion").item(0).getTextContent()));
+                kitEducativo.setCantidad(Integer.parseInt(nodoKit.getElementsByTagName("Cantidad").item(0).getTextContent()));
+                kitEducativo.setCantidad(Integer.parseInt(nodoKit.getElementsByTagName("Clasificacion").item(0).getTextContent()));
+                this.kits.add(kitEducativo);
+            }
+
+
+        }
+    }
 
 private void adicionaNodo(Element raiz,Document documento ,String tag, String value)
 {

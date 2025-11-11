@@ -1,5 +1,6 @@
 package gui;
 
+import atributos.KitEducativo;
 import atributos.LogrosAvanzados;
 import atributos.Ninno;
 import atributos.NivelesPrincipiantes;
@@ -40,6 +41,12 @@ private NinnoModelo ninnoModelo;
         vista.principianteRadioButton.addActionListener(ninnoControlador);
         vista.avanzadoRadioButton.addActionListener(ninnoControlador);
 
+        vista.adicionarKitBtn.addActionListener(ninnoControlador);
+        vista.importarKitBtn.addActionListener(ninnoControlador);
+        vista.exportarKitBtn.addActionListener(ninnoControlador);
+
+
+
     }
 
     private void addWindowListener(WindowListener listener) {
@@ -72,9 +79,9 @@ private NinnoModelo ninnoModelo;
 
                 break;
 
-            case "ADICIONAR" :
+            case "ADICIONAR NIÑO" :
 
-                if (isNOTValid())
+                if (isNOTValidNinnos())
                 {
                     Util.mensajeError("Por favor complete toda la informacion");
                     break;
@@ -100,32 +107,32 @@ private NinnoModelo ninnoModelo;
                             LogrosAvanzados.valueOf(vista.LogroscomboBox.getSelectedItem().toString())
                     );
                 }
-                limpiarCampos();
+                limpiarCamposNinnos();
                 vista.ninnoDefaultListModel.addElement(ninnoModelo.ninnos.get(ninnoModelo.ninnos.size()-1));
                 break;
 
-            case "EXPORTAR" :
+            case "EXPORTAR NIÑOS" :
                 JFileChooser selectorFichero2 = Util.crearSelectorFichero("Archivos XML","xml");
-                int opt2=selectorFichero2.showSaveDialog(null);
-                if (opt2==JFileChooser.APPROVE_OPTION) {
-                    try {
+            int opt2=selectorFichero2.showSaveDialog(null);
+            if (opt2==JFileChooser.APPROVE_OPTION) {
+                try {
 
-                        ninnoModelo.exportarXml(selectorFichero2.getSelectedFile());
+                    ninnoModelo.exportarXmlNinnos(selectorFichero2.getSelectedFile());
 
-                    } catch (ParserConfigurationException ex) {
-                        ex.printStackTrace();
-                    } catch (TransformerException ex) {
-                        ex.printStackTrace();
-                    }
+                } catch (ParserConfigurationException ex) {
+                    ex.printStackTrace();
+                } catch (TransformerException ex) {
+                    ex.printStackTrace();
                 }
-                break;
-            case "IMPORTAR":
+            }
+            break;
+            case "IMPORTAR NIÑOS":
 
                 JFileChooser selectorFichero = Util.crearSelectorFichero("Archivos XML","xml");
                 int opt=selectorFichero.showOpenDialog(null);
                 if (opt==JFileChooser.APPROVE_OPTION) {
                     try {
-                        ninnoModelo.importarXml(selectorFichero.getSelectedFile());
+                        ninnoModelo.importarXmlNinnos(selectorFichero.getSelectedFile());
 
                     } catch (ParserConfigurationException ex) {
                         ex.printStackTrace();
@@ -134,7 +141,66 @@ private NinnoModelo ninnoModelo;
                     } catch (SAXException ex) {
                         ex.printStackTrace();
                     }
-                    refrescar();
+                    refrescarNinnos();
+                }
+                break;
+
+            case "ADICIONAR KIT" :
+
+                if (isNOTValidKit())
+                {
+                    Util.mensajeError("Por favor complete toda la informacion");
+                    break;
+
+                }
+
+
+                ninnoModelo.adicionarKit(
+                        vista.txtID.getText(),
+                        vista.txtNombre_Kit.getText(),
+                        (Integer)  vista.cantidadSpinner1.getValue(),
+                        vista.fechaDeProduccion.getDate(),
+                        vista.nuevoCheckBox.isSelected(),
+                        vista.clasificacionSlider1.getValue()
+                        );
+
+
+                limpiarCamposKits();
+                vista.kitDefaultListModel.addElement(ninnoModelo.kits.get(ninnoModelo.kits.size()-1));
+                break;
+            case "EXPORTAR KIT" :
+
+                JFileChooser selectorFicheroKits = Util.crearSelectorFichero("Archivos XML","xml");
+                int opt3=selectorFicheroKits.showSaveDialog(null);
+                if (opt3==JFileChooser.APPROVE_OPTION) {
+                    try {
+
+                        ninnoModelo.exportarXmlKits(selectorFicheroKits.getSelectedFile());
+
+                    } catch (ParserConfigurationException ex) {
+                        ex.printStackTrace();
+                    } catch (TransformerException ex) {
+                        ex.printStackTrace();
+                    }
+                }
+                break;
+
+            case "IMPORTAR KIT":
+
+                JFileChooser selectorFicheroKit = Util.crearSelectorFichero("Archivos XML","xml");
+                int optKit=selectorFicheroKit.showOpenDialog(null);
+                if (optKit==JFileChooser.APPROVE_OPTION) {
+                    try {
+                        ninnoModelo.importarXmlKit(selectorFicheroKit.getSelectedFile());
+
+                    } catch (ParserConfigurationException ex) {
+                        ex.printStackTrace();
+                    } catch (IOException ex) {
+                        ex.printStackTrace();
+                    } catch (SAXException ex) {
+                        ex.printStackTrace();
+                    }
+                    refrescarKit();
                 }
                 break;
 
@@ -143,7 +209,7 @@ private NinnoModelo ninnoModelo;
 
     }
 
-    private void limpiarCampos() {
+    private void limpiarCamposNinnos() {
         vista.txtDni.setText(null);
         vista.fechaDeNacimientoDPicker.setDate(null);
         vista.hombreRadioButton.setSelected(true);
@@ -154,7 +220,18 @@ private NinnoModelo ninnoModelo;
 
     }
 
-    private boolean isNOTValid() {
+    private void limpiarCamposKits() {
+        vista.txtID.setText(null);
+        vista.fechaDeProduccion.setDate(null);
+        vista.nuevoCheckBox.setSelected(true);
+        vista.reacondicionadoCheckBox.setSelected(false);
+        vista.txtNombre_Kit.setText(null);
+        vista.cantidadSpinner1.setValue(0);
+        vista.clasificacionSlider1.setValue(0);
+
+    }
+
+    private boolean isNOTValidNinnos() {
     if (vista.txtDni.getText().trim().length()==0)
     {
         return true;
@@ -181,10 +258,44 @@ private NinnoModelo ninnoModelo;
     return false;
     }
 
-    private void refrescar() {
+    private boolean isNOTValidKit() {
+        if (vista.txtID.getText().trim().length()==0)
+        {
+            return true;
+        }
+        if (vista.txtNombre_Kit.getText().trim().length()==0)
+        {
+            return true;
+        }
+        if (!vista.nuevoCheckBox.isSelected() && !vista.reacondicionadoCheckBox.isSelected())
+        {
+            return true;
+        }
+        if (vista.fechaDeProduccion.getText().trim().length()==0)
+        {
+            return true;
+        }
+        if (vista.cantidadSpinner1.getValue() == null || ( (Integer) vista.cantidadSpinner1.getValue() )<0 )
+        {
+            return true;
+        }
+
+
+
+        return false;
+    }
+
+    private void refrescarNinnos() {
         vista.ninnoDefaultListModel.clear();
         for (Ninno ninno:ninnoModelo.ninnos) {
             vista.ninnoDefaultListModel.addElement(ninno);
+        }
+    }
+
+    private void refrescarKit() {
+        vista.kitDefaultListModel.clear();
+        for (KitEducativo kits:ninnoModelo.kits) {
+            vista.kitDefaultListModel.addElement(kits);
         }
     }
 
