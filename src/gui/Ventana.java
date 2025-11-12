@@ -43,7 +43,7 @@ public class Ventana {
     public Ventana() {
         frame = new JFrame("Ventana");
         frame.setContentPane(this.PanelPrincipal);
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
         frame.pack();
         frame.setVisible(true);
 

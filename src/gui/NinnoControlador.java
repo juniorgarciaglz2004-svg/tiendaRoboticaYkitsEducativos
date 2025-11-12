@@ -307,7 +307,7 @@ private NinnoModelo ninnoModelo;
     @Override
     public void windowClosing(WindowEvent e) {
         int resp= Util.mensajeConfirmacion("¿Desea cerrar la ventana?","Salir");
-        if (resp== JOptionPane.OK_OPTION) {
+        if (resp== JOptionPane.YES_OPTION) {
             System.exit(0);
         }
     }
