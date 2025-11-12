@@ -45,10 +45,13 @@
     <constraints>
       <xy x="33" y="47" width="1094" height="761"/>
     </constraints>
-    <properties/>
-    <border type="bevel-lowered" title-position="1">
-      <font/>
-      <title-color color="-4473925"/>
+    <properties>
+      <background color="-8480887"/>
+    </properties>
+    <border type="line" title="TIENDA ROBOTICA Y KITS EDUCATIVOS PARA NIÑOS&#10;" title-position="1">
+      <font name="Courier New" size="22" style="2"/>
+      <title-color color="-6767691"/>
+      <color color="-4476653"/>
     </border>
     <children>
       <component id="4abed" class="javax.swing.JLabel">
@@ -57,6 +60,7 @@
           <forms/>
         </constraints>
         <properties>
+          <foreground color="-5651350"/>
           <text value="DNI"/>
         </properties>
       </component>
@@ -66,6 +70,7 @@
           <forms/>
         </constraints>
         <properties>
+          <foreground color="-5651350"/>
           <text value="NOMBRE"/>
         </properties>
       </component>
@@ -75,6 +80,7 @@
           <forms/>
         </constraints>
         <properties>
+          <foreground color="-5651350"/>
           <text value="SEXO"/>
         </properties>
       </component>
@@ -118,6 +124,7 @@
           <forms/>
         </constraints>
         <properties>
+          <foreground color="-5651350"/>
           <text value="FECHA NACIMIENTO"/>
         </properties>
       </component>
@@ -127,6 +134,7 @@
           <forms/>
         </constraints>
         <properties>
+          <foreground color="-5651350"/>
           <text value="TIPO"/>
         </properties>
       </component>
@@ -146,6 +154,7 @@
           <forms/>
         </constraints>
         <properties>
+          <foreground color="-5651350"/>
           <text value="NIVEL"/>
         </properties>
       </component>
@@ -169,6 +178,7 @@
         </constraints>
         <properties>
           <enabled value="true"/>
+          <foreground color="-5651350"/>
           <text value="LOGROS"/>
         </properties>
       </component>
@@ -228,6 +238,8 @@
           <forms/>
         </constraints>
         <properties>
+          <background color="-15365108"/>
+          <foreground color="-3815995"/>
           <text value="EXPORTAR NIÑOS"/>
         </properties>
       </component>
@@ -237,6 +249,8 @@
           <forms/>
         </constraints>
         <properties>
+          <background color="-15365108"/>
+          <foreground color="-4473925"/>
           <text value="IMPORTAR NIÑOS"/>
         </properties>
       </component>
@@ -246,6 +260,8 @@
           <forms/>
         </constraints>
         <properties>
+          <background color="-15365108"/>
+          <foreground color="-4473925"/>
           <text value="ADICIONAR NIÑO"/>
         </properties>
       </component>
@@ -363,13 +379,16 @@
       </component>
       <component id="8c794" class="javax.swing.JList" binding="list1" default-binding="true">
         <constraints>
-          <grid row="18" column="0" row-span="2" col-span="5" vsize-policy="6" hsize-policy="2" anchor="0" fill="3" indent="0" use-parent-layout="false">
+          <grid row="18" column="0" row-span="1" col-span="5" vsize-policy="6" hsize-policy="2" anchor="0" fill="3" indent="0" use-parent-layout="false">
             <preferred-size width="150" height="50"/>
           </grid>
           <forms defaultalign-vert="false"/>
         </constraints>
         <properties>
+          <background color="-135936"/>
           <model/>
+          <selectionBackground color="-13833448"/>
+          <selectionForeground color="-16777216"/>
         </properties>
       </component>
       <hspacer id="d7ec3">
@@ -419,7 +438,7 @@
       <vspacer id="98d53">
         <constraints>
           <grid row="20" column="2" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
-          <forms defaultalign-vert="false"/>
+          <forms top="100" left="0" bottom="0" right="0" defaultalign-vert="false"/>
         </constraints>
       </vspacer>
       <component id="81d31" class="javax.swing.JButton" binding="importarKitBtn">
@@ -477,6 +496,15 @@
           <forms defaultalign-vert="false"/>
         </constraints>
       </vspacer>
+      <component id="69787" class="javax.swing.JButton" binding="EXPORTARHTMLButton" default-binding="true">
+        <constraints>
+          <grid row="14" column="10" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+          <forms/>
+        </constraints>
+        <properties>
+          <text value="EXPORTAR HTML"/>
+        </properties>
+      </component>
     </children>
   </grid>
   <buttonGroups>
