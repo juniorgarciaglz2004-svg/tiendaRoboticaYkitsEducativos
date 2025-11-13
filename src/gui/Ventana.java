@@ -34,7 +34,8 @@ public class Ventana {
      JButton adicionarKitBtn;
      JButton exportarKitBtn;
      JButton importarKitBtn;
-    private JButton EXPORTARHTMLButton;
+     JButton EXPORTARHTMLKITButton;
+     JButton EXPORTARHTMLNINNOSButton;
 
     public JFrame frame;
     public DefaultListModel<Ninno> ninnoDefaultListModel;

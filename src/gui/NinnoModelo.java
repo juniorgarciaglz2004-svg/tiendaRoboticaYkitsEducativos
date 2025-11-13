@@ -11,6 +11,7 @@ import javax.xml.transform.*;
 import javax.xml.transform.dom.DOMSource;
 import javax.xml.transform.stream.StreamResult;
 import java.io.File;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -223,5 +224,126 @@ private void adicionaNodo(Element raiz,Document documento ,String tag, String va
 }
 
 
+    public void exportarHtmlKits(File selectedFile) throws IOException {
 
+        FileWriter fileWriter = new FileWriter(new File(selectedFile.getPath()));
+
+        fileWriter.write("<html>\n" +
+                "    <head>\n" +
+                "        <title>Html exportado</title>\n" +
+                "    </head>\n" +
+                "    <body>\n" +
+                "        \n" +
+                "        <p>Listado de Kits</p>\n" +
+                "\n" +
+                "        <table>\n" +
+                "            <tr>\n" +
+                "                <th>ID</th>\n" +
+                "                <th>Nombre</th>\n" +
+                "                <th>Cantidad</th>\n" +
+                "                <th>Fecha de Produccion</th>\n" +
+                "                <th>Condicion</th>\n" +
+                "                <th>Clasificacion</th>\n" +
+                "            </tr>");
+        for (KitEducativo kitEducativo : kits)
+        {
+            String condicion = null;
+            if (kitEducativo.isProductoCondicion())
+            {
+                condicion = "Nuevo";
+
+            }
+            else{
+                condicion = "Reacondicionado";
+            }
+
+
+            fileWriter.write("<tr>\n" +
+                    "                <td>"+ kitEducativo.getId()  +"</td>\n" +
+                    "                <td>" + kitEducativo.getNombre()  +"</td>\n" +
+                    "                <td>" + kitEducativo.getCantidad() +"</td>\n" +
+                    "                <td>"+ kitEducativo.getFechaDeProduccion() +"</td>\n" +
+                    "                <td>"+ condicion+"</td>\n" +
+                    "                <td>"+ kitEducativo.getClasificacion() +"</td>\n" +
+                    "            </tr>");
+        }
+
+
+        fileWriter.write(" </table>\n" +
+                "\n" +
+                "    </body>\n" +
+                "</html>");
+
+        fileWriter.close();
+
+
+
+
+    }
+
+    public void exportarHtmlNinnos(File selectedFile) throws IOException {
+        FileWriter fileWriter = new FileWriter(new File(selectedFile.getPath()));
+
+        fileWriter.write("<html>\n" +
+                "    <head>\n" +
+                "        <title>Html exportado</title>\n" +
+                "    </head>\n" +
+                "    <body>\n" +
+                "        \n" +
+                "        <p>Listado de niños</p>\n" +
+                "\n" +
+                "        <table>\n" +
+                "            <tr>\n" +
+                "                <th>Tipo</th>\n" +
+                "                <th>Nombre</th>\n" +
+                "                <th>DNI</th>\n" +
+                "                <th>Sexo</th>\n" +
+                "                <th>Fecha de nacimiento</th>\n" +
+                "                <th>Nivel/logros</th>\n" +
+                "            </tr>");
+        for (Ninno n : ninnos)
+        {
+            String tipo = null;
+            String sexo = null;
+            String nivel = null;
+            if (n instanceof  NinnoPrincipiante)
+            {
+                tipo = "Principiante";
+                nivel = ((NinnoPrincipiante) n).getNivel().toString();
+            }
+            else{
+
+                tipo = "Avanzado";
+                nivel = ((NinnoAvanzado)n).getLogros().toString();
+            }
+
+            if (n.isGenero())
+            {
+                sexo = "Hombre";
+            }
+            else {
+                sexo = "Mujer";
+            }
+
+
+
+
+            fileWriter.write("<tr>\n" +
+                    "                <td>"+ tipo  +"</td>\n" +
+                    "                <td>" + n.getNombre()  +"</td>\n" +
+                    "                <td>" + n.getDni()  +"</td>\n" +
+                    "                <td>"+ sexo +"</td>\n" +
+                    "                <td>"+ n.getFechaNacimiento() +"</td>\n" +
+                    "                <td>"+ nivel +"</td>\n" +
+                    "            </tr>");
+        }
+
+
+        fileWriter.write(" </table>\n" +
+                "\n" +
+                "    </body>\n" +
+                "</html>");
+
+        fileWriter.close();
+    }
 }

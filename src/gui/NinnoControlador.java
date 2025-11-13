@@ -44,8 +44,8 @@ private NinnoModelo ninnoModelo;
         vista.adicionarKitBtn.addActionListener(ninnoControlador);
         vista.importarKitBtn.addActionListener(ninnoControlador);
         vista.exportarKitBtn.addActionListener(ninnoControlador);
-
-
+        vista.EXPORTARHTMLNINNOSButton.addActionListener(ninnoControlador);
+        vista.EXPORTARHTMLKITButton.addActionListener(ninnoControlador);
 
     }
 
@@ -202,6 +202,38 @@ private NinnoModelo ninnoModelo;
                     }
                     refrescarKit();
                 }
+                break;
+
+            case "EXPORTAR HTML NIÑOS":
+                JFileChooser selectorFicheroHTMLNinnos = Util.crearSelectorFichero("Archivos HTML","html");
+                int optHtmlNinnos=selectorFicheroHTMLNinnos.showSaveDialog(null);
+                if (optHtmlNinnos==JFileChooser.APPROVE_OPTION) {
+
+                    try {
+                        ninnoModelo.exportarHtmlNinnos(selectorFicheroHTMLNinnos.getSelectedFile());
+                    } catch (IOException ex) {
+                        ex.printStackTrace();
+                    }
+
+                }
+
+
+                break;
+
+            case "EXPORTAR HTML KIT":
+                JFileChooser selectorFicheroHTMLKits = Util.crearSelectorFichero("Archivos HTML","html");
+                int optHtmlKit=selectorFicheroHTMLKits.showSaveDialog(null);
+                if (optHtmlKit==JFileChooser.APPROVE_OPTION) {
+
+                    try {
+                        ninnoModelo.exportarHtmlKits(selectorFicheroHTMLKits.getSelectedFile());
+                    } catch (IOException ex) {
+                        ex.printStackTrace();
+                    }
+
+                }
+
+
                 break;
 
         }

@@ -43,7 +43,7 @@
     <colspec value="left:4dlu:noGrow"/>
     <colspec value="fill:d:grow"/>
     <constraints>
-      <xy x="33" y="47" width="1094" height="761"/>
+      <xy x="33" y="47" width="1123" height="761"/>
     </constraints>
     <properties>
       <background color="-8480887"/>
@@ -496,13 +496,22 @@
           <forms defaultalign-vert="false"/>
         </constraints>
       </vspacer>
-      <component id="69787" class="javax.swing.JButton" binding="EXPORTARHTMLButton" default-binding="true">
+      <component id="69787" class="javax.swing.JButton" binding="EXPORTARHTMLKITButton" default-binding="true">
         <constraints>
-          <grid row="14" column="10" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+          <grid row="14" column="12" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
           <forms/>
         </constraints>
         <properties>
-          <text value="EXPORTAR HTML"/>
+          <text value="EXPORTAR HTML KIT"/>
+        </properties>
+      </component>
+      <component id="3c561" class="javax.swing.JButton" binding="EXPORTARHTMLNINNOSButton">
+        <constraints>
+          <grid row="14" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+          <forms/>
+        </constraints>
+        <properties>
+          <text value="EXPORTAR HTML NIÑOS"/>
         </properties>
       </component>
     </children>
