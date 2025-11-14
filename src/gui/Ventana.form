@@ -21,7 +21,6 @@
     <rowspec value="top:4dlu:noGrow"/>
     <rowspec value="center:d:grow"/>
     <rowspec value="top:4dlu:noGrow"/>
-    <rowspec value="center:d:grow"/>
     <rowspec value="top:4dlu:noGrow"/>
     <colspec value="fill:d:noGrow"/>
     <colspec value="left:4dlu:noGrow"/>
@@ -46,12 +45,13 @@
       <xy x="33" y="47" width="1123" height="761"/>
     </constraints>
     <properties>
-      <background color="-8480887"/>
+      <background color="-16739073"/>
+      <foreground color="-1509633"/>
     </properties>
-    <border type="line" title="TIENDA ROBOTICA Y KITS EDUCATIVOS PARA NIÑOS&#10;" title-position="1">
+    <border type="line" title="TIENDA ROBOTICA Y KITS EDUCATIVOS PARA NIÑOS&#10;" title-justification="2" title-position="1">
       <font name="Courier New" size="22" style="2"/>
-      <title-color color="-6767691"/>
-      <color color="-4476653"/>
+      <title-color color="-2234130"/>
+      <color color="-13475653"/>
     </border>
     <children>
       <component id="4abed" class="javax.swing.JLabel">
@@ -60,7 +60,9 @@
           <forms/>
         </constraints>
         <properties>
-          <foreground color="-5651350"/>
+          <background color="-1509633"/>
+          <font name="Droid Sans Mono" size="12" style="1"/>
+          <foreground color="-1509633"/>
           <text value="DNI"/>
         </properties>
       </component>
@@ -70,7 +72,8 @@
           <forms/>
         </constraints>
         <properties>
-          <foreground color="-5651350"/>
+          <font name="Droid Sans Mono" size="12" style="1"/>
+          <foreground color="-1509633"/>
           <text value="NOMBRE"/>
         </properties>
       </component>
@@ -80,7 +83,8 @@
           <forms/>
         </constraints>
         <properties>
-          <foreground color="-5651350"/>
+          <font name="Droid Sans Mono" size="12" style="1"/>
+          <foreground color="-1509633"/>
           <text value="SEXO"/>
         </properties>
       </component>
@@ -90,6 +94,9 @@
           <forms/>
         </constraints>
         <properties>
+          <background color="-16747572"/>
+          <font name="Courier New" size="12" style="1"/>
+          <foreground color="-1509633"/>
           <selected value="true"/>
           <text value="Hombre"/>
         </properties>
@@ -102,6 +109,8 @@
           <forms defaultalign-horz="false"/>
         </constraints>
         <properties>
+          <background color="-1705985"/>
+          <font name="DialogInput" size="12" style="0"/>
           <text value=""/>
           <toolTipText value="Teclee DNI"/>
         </properties>
@@ -114,6 +123,8 @@
           <forms defaultalign-horz="false"/>
         </constraints>
         <properties>
+          <background color="-1705985"/>
+          <font name="DialogInput" size="12" style="0"/>
           <text value=""/>
           <toolTipText value="Teclee Nombre"/>
         </properties>
@@ -124,7 +135,8 @@
           <forms/>
         </constraints>
         <properties>
-          <foreground color="-5651350"/>
+          <font name="Droid Sans Mono" size="12" style="1"/>
+          <foreground color="-1509633"/>
           <text value="FECHA NACIMIENTO"/>
         </properties>
       </component>
@@ -134,7 +146,8 @@
           <forms/>
         </constraints>
         <properties>
-          <foreground color="-5651350"/>
+          <font name="Droid Sans Mono" size="12" style="1"/>
+          <foreground color="-1509633"/>
           <text value="TIPO"/>
         </properties>
       </component>
@@ -144,6 +157,9 @@
           <forms/>
         </constraints>
         <properties>
+          <background color="-16747572"/>
+          <font name="Courier New" size="12" style="1"/>
+          <foreground color="-1509633"/>
           <selected value="true"/>
           <text value="Principiante"/>
         </properties>
@@ -154,7 +170,8 @@
           <forms/>
         </constraints>
         <properties>
-          <foreground color="-5651350"/>
+          <font name="Droid Sans Mono" size="12" style="1"/>
+          <foreground color="-1509633"/>
           <text value="NIVEL"/>
         </properties>
       </component>
@@ -164,6 +181,9 @@
           <forms/>
         </constraints>
         <properties>
+          <background color="-16227636"/>
+          <font name="Courier New" size="12" style="1"/>
+          <foreground color="-1509633"/>
           <model>
             <item value="INICIAL"/>
             <item value="INTERMEDIO"/>
@@ -178,7 +198,8 @@
         </constraints>
         <properties>
           <enabled value="true"/>
-          <foreground color="-5651350"/>
+          <font name="Droid Sans Mono" size="12" style="1"/>
+          <foreground color="-1509633"/>
           <text value="LOGROS"/>
         </properties>
       </component>
@@ -188,7 +209,10 @@
           <forms/>
         </constraints>
         <properties>
+          <background color="-16227636"/>
           <enabled value="true"/>
+          <font name="Courier New" size="12" style="1"/>
+          <foreground color="-1509633"/>
           <model>
             <item value="PREMIO_A"/>
             <item value="PREMIO_B"/>
@@ -202,7 +226,9 @@
           <forms/>
         </constraints>
         <properties>
+          <background color="-16747572"/>
           <enabled value="true"/>
+          <foreground color="-1509633"/>
           <text value="Avanzado"/>
         </properties>
       </component>
@@ -212,6 +238,8 @@
           <forms/>
         </constraints>
         <properties>
+          <font name="Droid Sans Mono" size="12" style="1"/>
+          <foreground color="-1509633"/>
           <text value="ID"/>
         </properties>
       </component>
@@ -220,7 +248,10 @@
           <grid row="8" column="2" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
           <forms/>
         </constraints>
-        <properties/>
+        <properties>
+          <background color="-16747572"/>
+          <font name="DialogInput" size="12" style="0"/>
+        </properties>
       </component>
       <component id="c3a00" class="javax.swing.JRadioButton" binding="mujerRadioButton" default-binding="true">
         <constraints>
@@ -228,6 +259,9 @@
           <forms/>
         </constraints>
         <properties>
+          <background color="-16747572"/>
+          <font name="Courier New" size="12" style="1"/>
+          <foreground color="-1509633"/>
           <selected value="false"/>
           <text value="Mujer"/>
         </properties>
@@ -238,8 +272,9 @@
           <forms/>
         </constraints>
         <properties>
-          <background color="-15365108"/>
-          <foreground color="-3815995"/>
+          <background color="-16227636"/>
+          <font style="3"/>
+          <foreground color="-4200449"/>
           <text value="EXPORTAR NIÑOS"/>
         </properties>
       </component>
@@ -249,8 +284,9 @@
           <forms/>
         </constraints>
         <properties>
-          <background color="-15365108"/>
-          <foreground color="-4473925"/>
+          <background color="-16227636"/>
+          <font style="3"/>
+          <foreground color="-4200449"/>
           <text value="IMPORTAR NIÑOS"/>
         </properties>
       </component>
@@ -260,8 +296,9 @@
           <forms/>
         </constraints>
         <properties>
-          <background color="-15365108"/>
-          <foreground color="-4473925"/>
+          <background color="-16227636"/>
+          <font style="3"/>
+          <foreground color="-4200449"/>
           <text value="ADICIONAR NIÑO"/>
         </properties>
       </component>
@@ -273,6 +310,8 @@
           <forms defaultalign-horz="false"/>
         </constraints>
         <properties>
+          <background color="-1705985"/>
+          <font name="DialogInput" size="12" style="0"/>
           <text value=""/>
           <toolTipText value="Teclee el ID"/>
         </properties>
@@ -284,7 +323,10 @@
           </grid>
           <forms defaultalign-horz="false"/>
         </constraints>
-        <properties/>
+        <properties>
+          <background color="-1705985"/>
+          <font name="DialogInput" size="12" style="0"/>
+        </properties>
       </component>
       <component id="82569" class="javax.swing.JLabel">
         <constraints>
@@ -292,6 +334,8 @@
           <forms/>
         </constraints>
         <properties>
+          <font name="Droid Sans Mono" size="12" style="1"/>
+          <foreground color="-1509633"/>
           <text value="NOMBRE KIT"/>
         </properties>
       </component>
@@ -301,6 +345,8 @@
           <forms/>
         </constraints>
         <properties>
+          <font name="Fira Code Medium" size="22" style="3"/>
+          <foreground color="-2234130"/>
           <horizontalAlignment value="0"/>
           <horizontalTextPosition value="0"/>
           <text value="Niños "/>
@@ -324,6 +370,8 @@
           <forms/>
         </constraints>
         <properties>
+          <font name="Droid Sans Mono" size="12" style="1"/>
+          <foreground color="-1509633"/>
           <text value="CANTIDAD"/>
         </properties>
       </component>
@@ -350,14 +398,21 @@
           <grid row="6" column="14" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
           <forms defaultalign-horz="false"/>
         </constraints>
-        <properties/>
+        <properties>
+          <background color="-16747572"/>
+          <font name="Consolas" size="12" style="1"/>
+          <foreground color="-1509633"/>
+        </properties>
       </component>
       <component id="2487b" class="com.github.lgooddatepicker.components.DatePicker" binding="fechaDeProduccion">
         <constraints>
           <grid row="8" column="14" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
           <forms/>
         </constraints>
-        <properties/>
+        <properties>
+          <background color="-16747572"/>
+          <font name="DialogInput" size="12" style="0"/>
+        </properties>
       </component>
       <component id="22102" class="javax.swing.JLabel">
         <constraints>
@@ -365,6 +420,8 @@
           <forms/>
         </constraints>
         <properties>
+          <font name="Droid Sans Mono" size="12" style="1"/>
+          <foreground color="-1509633"/>
           <text value="FECHA DE PRODUCCION"/>
         </properties>
       </component>
@@ -374,22 +431,29 @@
           <forms/>
         </constraints>
         <properties>
+          <font name="Droid Sans Mono" size="12" style="1"/>
+          <foreground color="-1509633"/>
           <text value="CONDICION PRODUCTO"/>
         </properties>
       </component>
       <component id="8c794" class="javax.swing.JList" binding="list1" default-binding="true">
         <constraints>
-          <grid row="18" column="0" row-span="1" col-span="5" vsize-policy="6" hsize-policy="2" anchor="0" fill="3" indent="0" use-parent-layout="false">
+          <grid row="18" column="0" row-span="2" col-span="5" vsize-policy="6" hsize-policy="2" anchor="0" fill="3" indent="0" use-parent-layout="false">
             <preferred-size width="150" height="50"/>
           </grid>
           <forms defaultalign-vert="false"/>
         </constraints>
         <properties>
-          <background color="-135936"/>
+          <background color="-15570201"/>
+          <font name="Monospaced" size="12" style="3"/>
+          <foreground color="-4200449"/>
           <model/>
-          <selectionBackground color="-13833448"/>
-          <selectionForeground color="-16777216"/>
+          <selectionBackground color="-11833681"/>
+          <selectionForeground color="-4473925"/>
         </properties>
+        <clientProperties>
+          <html.disable class="java.lang.Boolean" value="true"/>
+        </clientProperties>
       </component>
       <hspacer id="d7ec3">
         <constraints>
@@ -403,6 +467,9 @@
           <forms/>
         </constraints>
         <properties>
+          <background color="-16747572"/>
+          <font name="Courier New" size="12" style="1"/>
+          <foreground color="-1509633"/>
           <selected value="true"/>
           <text value="Nuevo"/>
         </properties>
@@ -413,6 +480,9 @@
           <forms/>
         </constraints>
         <properties>
+          <background color="-16747572"/>
+          <font name="Courier New" size="12" style="1"/>
+          <foreground color="-1509633"/>
           <text value="Reacondicionado"/>
         </properties>
       </component>
@@ -422,8 +492,11 @@
           <forms defaultalign-horz="false"/>
         </constraints>
         <properties>
+          <background color="-12754468"/>
+          <foreground color="-9542913"/>
           <maximum value="5"/>
-          <value value="1"/>
+          <paintTrack value="false"/>
+          <value value="0"/>
         </properties>
       </component>
       <component id="bb3b" class="javax.swing.JLabel">
@@ -432,48 +505,19 @@
           <forms/>
         </constraints>
         <properties>
+          <font name="Droid Sans Mono" size="12" style="1"/>
+          <foreground color="-1509633"/>
           <text value="CLASIFICACION"/>
-        </properties>
-      </component>
-      <vspacer id="98d53">
-        <constraints>
-          <grid row="20" column="2" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
-          <forms top="100" left="0" bottom="0" right="0" defaultalign-vert="false"/>
-        </constraints>
-      </vspacer>
-      <component id="81d31" class="javax.swing.JButton" binding="importarKitBtn">
-        <constraints>
-          <grid row="16" column="14" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
-          <forms/>
-        </constraints>
-        <properties>
-          <text value="IMPORTAR KIT"/>
-        </properties>
-      </component>
-      <component id="20f28" class="javax.swing.JButton" binding="adicionarKitBtn">
-        <constraints>
-          <grid row="16" column="12" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
-          <forms/>
-        </constraints>
-        <properties>
-          <text value="ADICIONAR KIT"/>
-        </properties>
-      </component>
-      <component id="1a29a" class="javax.swing.JButton" binding="exportarKitBtn">
-        <constraints>
-          <grid row="16" column="10" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
-          <forms/>
-        </constraints>
-        <properties>
-          <text value="EXPORTAR KIT"/>
         </properties>
       </component>
       <component id="b484b" class="javax.swing.JLabel">
         <constraints>
           <grid row="0" column="12" row-span="1" col-span="5" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
-          <forms/>
+          <forms top="0" left="0" bottom="0" right="20"/>
         </constraints>
         <properties>
+          <font name="Fira Code Medium" size="22" style="3"/>
+          <foreground color="-2234130"/>
           <horizontalAlignment value="0"/>
           <horizontalTextPosition value="0"/>
           <text value="Kits Educativos"/>
@@ -487,22 +531,10 @@
           <forms defaultalign-vert="false"/>
         </constraints>
         <properties>
+          <background color="-15570201"/>
+          <font name="Monospaced" size="12" style="3"/>
+          <foreground color="-4200449"/>
           <model/>
-        </properties>
-      </component>
-      <vspacer id="8ce8e">
-        <constraints>
-          <grid row="20" column="12" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
-          <forms defaultalign-vert="false"/>
-        </constraints>
-      </vspacer>
-      <component id="69787" class="javax.swing.JButton" binding="EXPORTARHTMLKITButton" default-binding="true">
-        <constraints>
-          <grid row="14" column="12" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
-          <forms/>
-        </constraints>
-        <properties>
-          <text value="EXPORTAR HTML KIT"/>
         </properties>
       </component>
       <component id="3c561" class="javax.swing.JButton" binding="EXPORTARHTMLNINNOSButton">
@@ -511,7 +543,61 @@
           <forms/>
         </constraints>
         <properties>
+          <background color="-12273153"/>
+          <font style="3"/>
+          <foreground color="-15263710"/>
           <text value="EXPORTAR HTML NIÑOS"/>
+        </properties>
+      </component>
+      <component id="20f28" class="javax.swing.JButton" binding="adicionarKitBtn">
+        <constraints>
+          <grid row="16" column="10" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+          <forms/>
+        </constraints>
+        <properties>
+          <background color="-16227636"/>
+          <enabled value="true"/>
+          <font style="3"/>
+          <foreground color="-4200449"/>
+          <hideActionText value="false"/>
+          <text value="ADICIONAR KIT"/>
+        </properties>
+      </component>
+      <component id="81d31" class="javax.swing.JButton" binding="importarKitBtn">
+        <constraints>
+          <grid row="16" column="12" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+          <forms/>
+        </constraints>
+        <properties>
+          <background color="-16227636"/>
+          <enabled value="true"/>
+          <font style="3"/>
+          <foreground color="-4200449"/>
+          <text value="IMPORTAR KIT"/>
+        </properties>
+      </component>
+      <component id="1a29a" class="javax.swing.JButton" binding="exportarKitBtn">
+        <constraints>
+          <grid row="16" column="14" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+          <forms/>
+        </constraints>
+        <properties>
+          <background color="-16227636"/>
+          <font style="3"/>
+          <foreground color="-4200449"/>
+          <text value="EXPORTAR KIT"/>
+        </properties>
+      </component>
+      <component id="69787" class="javax.swing.JButton" binding="EXPORTARHTMLKITButton" default-binding="true">
+        <constraints>
+          <grid row="14" column="14" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+          <forms/>
+        </constraints>
+        <properties>
+          <background color="-12273153"/>
+          <font style="3"/>
+          <foreground color="-15263710"/>
+          <text value="EXPORTAR HTML KIT"/>
         </properties>
       </component>
     </children>
