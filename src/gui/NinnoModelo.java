@@ -16,16 +16,45 @@ import java.io.IOException;
 import java.time.LocalDate;
 import java.util.ArrayList;
 
+/**
+ * Clase Modelo de MVC
+ *
+ *
+ */
+
 public class NinnoModelo {
+    /**
+     * listado de ninnos
+     */
 public ArrayList<Ninno> ninnos = new ArrayList<>();
+    /**
+     * listado de Kits educativos
+     */
 public ArrayList<KitEducativo> kits = new ArrayList<>();
 
 
-public void adicionarPrincipiante ( String dni,  LocalDate fechaNacimiento, boolean genero, String nombre , NivelesPrincipiantes nivel)
+    /**
+     * Adiciona un principiante al listado
+     * @param dni identificador de niño
+     * @param fechaNacimiento fecha de nacimiento
+     * @param genero el genero (true/hombre) (false/mujer)
+     * @param nombre nombre
+     * @param nivel el nivel actual del niño
+     */
+    public void adicionarPrincipiante ( String dni,  LocalDate fechaNacimiento, boolean genero, String nombre , NivelesPrincipiantes nivel)
 {
     NinnoPrincipiante principiante = new NinnoPrincipiante(dni,fechaNacimiento,genero,nombre,nivel);
     ninnos.add(principiante);
 }
+
+    /**
+     * Adiciona un avanzado al listado
+     * @param dni identificador de niño
+     * @param fechaNacimiento fecha de nacimiento
+     * @param genero el genero (true/hombre) (false/mujer)
+     * @param nombre nombre
+     * @param logros los logros actuales del niño
+     */
 
 public void adicionarAvanzado (String dni,  LocalDate fechaNacimiento, boolean genero, String nombre , LogrosAvanzados logros)
 {
@@ -33,11 +62,29 @@ public void adicionarAvanzado (String dni,  LocalDate fechaNacimiento, boolean g
     ninnos.add(avanzado);
 }
 
+    /**
+     * Adiciona un kit educativo
+     * @param id la id del kit
+     * @param nombre nombre
+     * @param cantidad la cantidad de kits
+     * @param fechaDeProduccion fecha en la que hizo/produjo
+     * @param productoCondicion indica el estado del producto (true/nuevo) (false/reacondicionado)
+     * @param clasificacion la valoracion del kit
+     */
+
 public void adicionarKit (String id, String nombre, int cantidad, LocalDate fechaDeProduccion, boolean productoCondicion, int clasificacion)
 {
     KitEducativo kitEducativo = new KitEducativo(id,nombre,cantidad,fechaDeProduccion,productoCondicion ,clasificacion);
     kits.add(kitEducativo);
 }
+
+
+    /**
+     *  Exporta los datos de la lista sobre los ninnos a un fichero xml
+     * @param fichero fichero/archivo donde se almacena el xml
+     * @throws ParserConfigurationException
+     * @throws TransformerException
+     */
 
 public void exportarXmlNinnos(File fichero) throws ParserConfigurationException, TransformerException {
     DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
@@ -102,6 +149,12 @@ public void exportarXmlNinnos(File fichero) throws ParserConfigurationException,
 
 }
 
+    /**
+     * Exporta los datos de la lista sobre los kits a un xml
+     * @param fichero fichero/archivo donde se almacena el xml
+     * @throws ParserConfigurationException
+     * @throws TransformerException
+     */
     public void exportarXmlKits(File fichero) throws ParserConfigurationException, TransformerException {
         DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
         DocumentBuilder builder = factory.newDocumentBuilder();
@@ -149,7 +202,13 @@ public void exportarXmlNinnos(File fichero) throws ParserConfigurationException,
 
     }
 
-
+    /**
+     * importa los datos del archivo xml en el listado de ninnos
+     * @param fichero fichero/archivo donde se encuentra el xml
+     * @throws ParserConfigurationException
+     * @throws IOException
+     * @throws SAXException
+     */
 
     public void importarXmlNinnos(File fichero) throws ParserConfigurationException, IOException, SAXException {
         this.ninnos.clear();
@@ -185,6 +244,14 @@ public void exportarXmlNinnos(File fichero) throws ParserConfigurationException,
 
         }
     }
+
+    /**
+     * importa los datos del archivo xml en el listado de kits
+     * @param fichero fichero/archivo donde se encuentra el xml
+     * @throws ParserConfigurationException
+     * @throws IOException
+     * @throws SAXException
+     */
 
     public void importarXmlKit(File fichero) throws ParserConfigurationException, IOException, SAXException {
         this.kits.clear();
@@ -223,6 +290,11 @@ private void adicionaNodo(Element raiz,Document documento ,String tag, String va
     nodoDatos.appendChild(texto);
 }
 
+    /**
+     * Se exporta los datos de kits convertiendolos a xml en un archivo
+     * @param selectedFile fichero destino
+     * @throws IOException
+     */
 
     public void exportarHtmlKits(File selectedFile) throws IOException {
 
@@ -281,6 +353,12 @@ private void adicionaNodo(Element raiz,Document documento ,String tag, String va
 
     }
 
+    /**
+     * Se exporta los datos de ninnos convertiendolos a xml en un archivo
+     * @param selectedFile fichero destino
+     * @throws IOException
+     */
+
     public void exportarHtmlNinnos(File selectedFile) throws IOException {
         FileWriter fileWriter = new FileWriter(new File(selectedFile.getPath()));
 
@@ -290,7 +368,7 @@ private void adicionaNodo(Element raiz,Document documento ,String tag, String va
                 "    </head>\n" +
                 "    <body>\n" +
                 "        \n" +
-                "        <p>Listado de niños</p>\n" +
+                "        <p>Listado de ninnos</p>\n" +
                 "\n" +
                 "        <table>\n" +
                 "            <tr>\n" +

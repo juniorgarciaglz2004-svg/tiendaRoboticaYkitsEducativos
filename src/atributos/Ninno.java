@@ -3,6 +3,12 @@ package atributos;
 
 import java.time.LocalDate;
 
+/**
+ * Clase Base para los niños
+ * Contiene los atributos entre los tipos de niños
+ *
+ */
+
 public abstract class Ninno  {
 
 	private String dni;

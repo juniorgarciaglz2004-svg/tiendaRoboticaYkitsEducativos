@@ -2,6 +2,12 @@ package atributos;
 
 import java.time.LocalDate;
 
+/**
+ * Clase heredada del padre (Ninno)
+ * Contien un atributo para los Niveles
+ *
+ */
+
 public class NinnoPrincipiante extends  Ninno{
 
 private NivelesPrincipiantes nivel;

@@ -2,6 +2,10 @@ package atributos;
 
 import java.time.LocalDate;
 
+/**
+ *  Clase Kit Educativo
+ *  Contiene Atributos
+ */
 public class KitEducativo {
 
     private String id;
